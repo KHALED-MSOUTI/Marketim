@@ -60,11 +60,10 @@ public class LoginActivity extends AppCompatActivity {
         if (preferences.contains(Const.PREFS_NAME) &&
                 preferences.contains(Const.PREFS_PASSWORD) &&
                 preferences.contains(Const.PREFS_BOOLEAN)){
-
             Intent intent =new Intent(LoginActivity.this,MainActivity.class);
             startActivity(intent);
+            finish();
         }
-
     }
 
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)

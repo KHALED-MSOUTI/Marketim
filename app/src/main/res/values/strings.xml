@@ -1,7 +1,12 @@
 <resources>
     <string name="app_name">Marketim</string>
-    <string name="password">Password</string>
-    <string name="signIn">SIGNIN</string>
-    <string name="username">UserName</string>
-    <string name="signin">SIGNIN</string>
+    <string name="password">Şifre</string>
+    <string name="signIn">Giriş</string>
+    <string name="username">Kullanıcı adı</string>
+    <string name="signin">Giriş</string>
+    <string name="logout">Çıkış Yap</string>
+    <string name="sipareslerim">Siparişlerim</string>
+    <string name="alert">Uyarı</string>
+    <string name="alertText">çıkış yapmak ister misiniz ?</string>
+    <string name="beni_hatirla">Beni hatırla</string>
 </resources>

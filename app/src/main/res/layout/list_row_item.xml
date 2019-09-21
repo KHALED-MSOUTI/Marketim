@@ -43,20 +43,20 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:orientation="vertical"
             android:padding="8dp">
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="1">
+                android:layout_height="wrap_content">
                 <TextView
                     android:id="@+id/marketName"
-                    android:layout_width="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:padding="4dp"
-                    android:layout_weight="3"
+                    android:gravity="start"
                     tools:text="MarketName"
                     android:textSize="22sp"
                     android:textStyle="bold" />
@@ -66,7 +66,6 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="end"
-
                     app:chipBackgroundColor="@android:color/holo_orange_dark" />
 
             </LinearLayout>
@@ -75,9 +74,11 @@
             <TextView
                 android:id="@+id/orderName"
                 android:layout_weight="1"
+
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:padding="4dp"
+                android:paddingBottom="4dp"
+                android:layout_marginBottom="4dp"
                 android:paddingStart="12dp"
                 android:paddingEnd="0dp"
                 tools:text="OrderName"
@@ -86,12 +87,12 @@
 
             <com.google.android.material.chip.Chip
                 android:id="@+id/productState"
-                android:layout_weight="1"
+                android:layout_marginTop="4dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="32dp"
-                android:textColor="@android:color/white"
-                />
+                android:layout_weight="1"
+                android:textColor="@android:color/white" />
 
         </LinearLayout>
 
@@ -105,7 +106,7 @@
         android:layout_height="wrap_content">
         <TextView
             android:id="@+id/orderDetail"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:textSize="22sp"
             android:paddingStart="16dp"
@@ -117,9 +118,9 @@
         <com.google.android.material.chip.Chip
             android:id="@+id/summaryPrice"
             android:layout_gravity="end"
-            android:layout_weight="1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginEnd="16dp"
             app:chipBackgroundColor="@android:color/holo_orange_dark" />
     </LinearLayout>
 

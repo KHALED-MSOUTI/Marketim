@@ -6,14 +6,55 @@
     android:layout_height="match_parent"
     tools:context=".activity.MainActivity">
 
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerView"
         android:layout_width="0dp"
         android:layout_height="0dp"
+        android:layout_marginBottom="12dp"
         android:divider="#00000000"
+        app:layout_constraintBottom_toTopOf="@id/logout"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
+
+
+    <com.google.android.material.chip.ChipGroup
+        android:id="@+id/logout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginBottom="12dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintStart_toStartOf="parent">
+
+        <com.google.android.material.chip.Chip
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            app:chipStrokeColor="@color/green"
+            app:chipStrokeWidth="2dp"
+            android:textColor="@android:color/white"
+            app:chipBackgroundColor="@color/light_green"
+            android:text="@string/sipareslerim"
+            android:textSize="20sp" />
+
+        <com.google.android.material.chip.Chip
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:chipBackgroundColor="@color/red"
+            android:textColor="@android:color/white"
+            android:layout_margin="8dp"
+            android:gravity="center"
+            android:text="@string/logout"
+            android:onClick="Logout"
+            android:textSize="20sp" />
+    </com.google.android.material.chip.ChipGroup>
+
+
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
