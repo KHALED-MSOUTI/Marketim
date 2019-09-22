@@ -1,15 +1,13 @@
 package com.example.marketim.activity;
 
-import androidx.appcompat.app.AlertDialog;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.view.View;
 import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.marketim.R;
 import com.example.marketim.adapter.rvAdapter;
@@ -17,6 +15,7 @@ import com.example.marketim.contract.mainActivityContract;
 import com.example.marketim.model.jsonList;
 import com.example.marketim.presenter.myPresenter;
 import com.example.marketim.utils.Const;
+import com.google.android.material.chip.Chip;
 
 import java.util.ArrayList;
 
@@ -24,10 +23,12 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import cn.pedant.SweetAlert.SweetAlertDialog;
 
-public class MainActivity extends AppCompatActivity implements mainActivityContract.View,rvAdapter.ListItemClickListener {
+public class MainActivity extends AppCompatActivity implements mainActivityContract.View, rvAdapter.ListItemClickListener {
 
     @BindView(R.id.recyclerView)
-    RecyclerView recyclerViewl;
+    RecyclerView recyclerView;
+    @BindView(R.id.logoutChip)
+    Chip logoutChip;
     private SharedPreferences preferences;
     myPresenter mPresenter;
     rvAdapter adapter;
@@ -39,15 +40,26 @@ public class MainActivity extends AppCompatActivity implements mainActivityContr
         ButterKnife.bind(this);
         mPresenter = new myPresenter(this);
         mPresenter.start();
+        logoutChip.setOnClickListener(v -> new SweetAlertDialog(this, SweetAlertDialog.WARNING_TYPE)
+                .setTitleText(getString(R.string.alert))
+                .setContentText(getString(R.string.logoutAlertText))
+                .setConfirmText("Evet")
+                .setConfirmClickListener(sweetAlertDialog -> {
+                    preferences.edit().clear().apply();
+                    Intent intent = new Intent(this, LoginActivity.class);
+                    startActivity(intent);
+                    finish();
+                })
+                .show());
 
     }
 
     @Override
     public void init() {
         RecyclerView.LayoutManager manager = new LinearLayoutManager(this);
-        recyclerViewl.setLayoutManager(manager);
+        recyclerView.setLayoutManager(manager);
         mPresenter.loadData();
-        preferences = getSharedPreferences(Const.PREFERENCES_NAME,MODE_PRIVATE);
+        preferences = getSharedPreferences(Const.PREFERENCES_NAME, MODE_PRIVATE);
 
 
     }
@@ -55,7 +67,7 @@ public class MainActivity extends AppCompatActivity implements mainActivityContr
     @Override
     public void loadDataInList(ArrayList<jsonList> items) {
         adapter = new rvAdapter(this, items, this);
-        recyclerViewl.setAdapter(adapter);
+        recyclerView.setAdapter(adapter);
 
     }
 
@@ -71,18 +83,4 @@ public class MainActivity extends AppCompatActivity implements mainActivityContr
         adapter.notifyDataSetChanged();
     }
 
-    public void Logout(View view) {
-        new SweetAlertDialog(this, SweetAlertDialog.WARNING_TYPE)
-                .setTitleText(getString(R.string.alert))
-                .setContentText(getString(R.string.logoutAlertText))
-                .setConfirmText("Evet")
-                .setConfirmClickListener(sweetAlertDialog -> {
-                    preferences.edit().clear().apply();
-                    Intent intent = new Intent(this,LoginActivity.class);
-                    startActivity(intent);
-                    finish();
-                })
-                .show();
-
-    }
 }

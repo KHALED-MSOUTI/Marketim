@@ -37,12 +37,14 @@
             android:layout_margin="8dp"
             app:chipStrokeColor="@color/green"
             app:chipStrokeWidth="2dp"
+            android:clickable="false"
             android:textColor="@android:color/white"
             app:chipBackgroundColor="@color/light_green"
             android:text="@string/sipareslerim"
             android:textSize="20sp" />
 
         <com.google.android.material.chip.Chip
+            android:id="@+id/logoutChip"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             app:chipBackgroundColor="@color/red"
@@ -50,7 +52,6 @@
             android:layout_margin="8dp"
             android:gravity="center"
             android:text="@string/logout"
-            android:onClick="Logout"
             android:textSize="20sp" />
     </com.google.android.material.chip.ChipGroup>
 

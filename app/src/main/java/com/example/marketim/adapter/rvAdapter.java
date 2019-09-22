@@ -21,19 +21,19 @@ public class rvAdapter extends RecyclerView.Adapter<rvAdapter.viewHolder> {
     final private ListItemClickListener mOnClickListener;
     private ArrayList<jsonList> list;
     private Context context;
-    private int selectedPosition=-1;
+    private int selectedPosition = -1;
 
-    public rvAdapter(ListItemClickListener mOnClickListener,ArrayList<jsonList> list, Context context) {
-    this.list=list;
-    this.context=context;
-    this.mOnClickListener = mOnClickListener;
+    public rvAdapter(ListItemClickListener mOnClickListener, ArrayList<jsonList> list, Context context) {
+        this.list = list;
+        this.context = context;
+        this.mOnClickListener = mOnClickListener;
     }
 
     @NonNull
     @Override
     public rvAdapter.viewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view= LayoutInflater.from(parent.getContext())
-                    .inflate(R.layout.list_row_item, parent, false);
+        View view = LayoutInflater.from(parent.getContext())
+                .inflate(R.layout.list_row_item, parent, false);
         return new viewHolder(view);
     }
 
@@ -44,14 +44,14 @@ public class rvAdapter extends RecyclerView.Adapter<rvAdapter.viewHolder> {
         holder.marketName.setText(list.get(position).getMarketName());
         holder.orderName.setText(list.get(position).getOrderName());
         holder.productPrice.setText(getFinePrice(list.get(position).getProductPrice()));
-        setProductState(list.get(position).getProductState(),holder.productState);
+        setProductState(list.get(position).getProductState(), holder.productState);
         holder.orderDetail.setText(list.get(position).getProductDetail().getOrderDetail());
         holder.summaryPrice.setText(getFinePrice(list.get(position).getProductDetail().getSummaryPrice()));
-        if (position==selectedPosition){
-            int  visibility = holder.extended.getVisibility();
-            if(visibility== View.GONE){
+        if (position == selectedPosition) {
+            int visibility = holder.extended.getVisibility();
+            if (visibility == View.GONE) {
                 holder.extended.setVisibility(View.VISIBLE);
-            }else{
+            } else {
                 holder.extended.setVisibility(View.GONE);
             }
         }
@@ -63,7 +63,7 @@ public class rvAdapter extends RecyclerView.Adapter<rvAdapter.viewHolder> {
     }
 
 
-    public class viewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
+    public class viewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
         TextView date;
         TextView month;
         TextView marketName;
@@ -76,17 +76,18 @@ public class rvAdapter extends RecyclerView.Adapter<rvAdapter.viewHolder> {
 
         viewHolder(@NonNull View itemView) {
             super(itemView);
-            date= itemView.findViewById(R.id.dateDay);
+            date = itemView.findViewById(R.id.dateDay);
             month = itemView.findViewById(R.id.DateMonth);
-            marketName=itemView.findViewById(R.id.marketName);
-            orderName=itemView.findViewById(R.id.orderName);
-            productPrice=itemView.findViewById(R.id.productPrice);
-            productState=itemView.findViewById(R.id.productState);
-            orderDetail =itemView.findViewById(R.id.orderDetail);
-            summaryPrice=itemView.findViewById(R.id.summaryPrice);
+            marketName = itemView.findViewById(R.id.marketName);
+            orderName = itemView.findViewById(R.id.orderName);
+            productPrice = itemView.findViewById(R.id.productPrice);
+            productState = itemView.findViewById(R.id.productState);
+            orderDetail = itemView.findViewById(R.id.orderDetail);
+            summaryPrice = itemView.findViewById(R.id.summaryPrice);
             extended = itemView.findViewById(R.id.extended);
             itemView.setOnClickListener(this);
         }
+
         /**
          * Adding click listener
          */
@@ -98,11 +99,10 @@ public class rvAdapter extends RecyclerView.Adapter<rvAdapter.viewHolder> {
     }
 
     /**
-     * @return
-     * The name of th month based on the number of the month.
+     * @return The name of th month based on the number of the month.
      */
-    private  String getMonth(int index){
-        switch (index){
+    private String getMonth(int index) {
+        switch (index) {
             case 1:
                 return "OCAK";
             case 2:
@@ -134,23 +134,19 @@ public class rvAdapter extends RecyclerView.Adapter<rvAdapter.viewHolder> {
     }
 
     /**
-     * @return
-     * The price after parsing into string then add ₺ symbol.
+     * @return The price after parsing into string then add ₺ symbol.
      */
-    private String getFinePrice(double price){
-        return (price)+" ₺";
+    private String getFinePrice(double price) {
+        return (price) + " ₺";
     }
+
     /**
-     *
-     * @param state
-     * will be Checked
-     *
-     * @param chip
-     * Will be modified
+     * @param state will be Checked
+     * @param chip  Will be modified
      */
-    private void setProductState(String state,Chip chip){
+    private void setProductState(String state, Chip chip) {
         chip.setText(state);
-        switch (state){
+        switch (state) {
             case "Yolda":
                 chip.setChipIcon(context.getResources().getDrawable(R.drawable.ic_yolda));
                 chip.setChipBackgroundColor(ColorStateList.valueOf(context.getResources().getColor(R.color.green)));
@@ -165,13 +161,14 @@ public class rvAdapter extends RecyclerView.Adapter<rvAdapter.viewHolder> {
                 break;
         }
     }
+
     public interface ListItemClickListener {
         void onListItemClick(int clickedItemIndex);
     }
 
 
-    public void extend(int index){
-        selectedPosition  = index;
+    public void extend(int index) {
+        selectedPosition = index;
         notifyItemChanged(selectedPosition);
     }
 }

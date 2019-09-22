@@ -9,12 +9,12 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 import static com.example.marketim.utils.Const.BASE_URL;
 
-public class RetrofitAdapter {
+class RetrofitAdapter {
 
     private static Retrofit retrofit;
     private static Gson gson;
 
-    public static synchronized Retrofit getInstance() {
+    static synchronized Retrofit getInstance() {
 
         if (retrofit == null) {
             if (gson == null) {

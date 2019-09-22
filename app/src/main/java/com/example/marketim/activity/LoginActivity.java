@@ -51,16 +51,17 @@ public class LoginActivity extends AppCompatActivity {
     @BindView(R.id.mSwitch)
     Switch mSwitch;
     private SharedPreferences preferences;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
         ButterKnife.bind(this);
-        preferences = getSharedPreferences(Const.PREFERENCES_NAME,MODE_PRIVATE);
+        preferences = getSharedPreferences(Const.PREFERENCES_NAME, MODE_PRIVATE);
         if (preferences.contains(Const.PREFS_NAME) &&
                 preferences.contains(Const.PREFS_PASSWORD) &&
-                preferences.contains(Const.PREFS_BOOLEAN)){
-            Intent intent =new Intent(LoginActivity.this,MainActivity.class);
+                preferences.contains(Const.PREFS_BOOLEAN)) {
+            Intent intent = new Intent(LoginActivity.this, MainActivity.class);
             startActivity(intent);
             finish();
         }
@@ -192,13 +193,13 @@ public class LoginActivity extends AppCompatActivity {
     private void delayedStartNextActivity() {
         new Handler().postDelayed(() -> {
             Intent intent;
-            if(mSwitch.isChecked()){
+            if (mSwitch.isChecked()) {
                 SharedPreferences.Editor editor = preferences.edit();
-                editor.putString(Const.PREFS_NAME,userName.getText().toString());
-                editor.putString(Const.PREFS_PASSWORD,password.getText().toString());
-                editor.putBoolean(Const.PREFS_BOOLEAN,mSwitch.isChecked());
+                editor.putString(Const.PREFS_NAME, userName.getText().toString());
+                editor.putString(Const.PREFS_PASSWORD, password.getText().toString());
+                editor.putBoolean(Const.PREFS_BOOLEAN, mSwitch.isChecked());
                 editor.apply();
-            }else{
+            } else {
                 preferences.edit().clear().apply();
             }
             intent = new Intent(LoginActivity.this, MainActivity.class);
