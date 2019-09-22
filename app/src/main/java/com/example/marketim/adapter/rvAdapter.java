@@ -102,36 +102,48 @@ public class rvAdapter extends RecyclerView.Adapter<rvAdapter.viewHolder> {
      * @return The name of th month based on the number of the month.
      */
     private String getMonth(int index) {
+        String returnString;
         switch (index) {
             case 1:
-                return "OCAK";
+                returnString= "OCAK";
+                break;
             case 2:
-                return "ŞUBAT";
+                returnString= "ŞUBAT";
+                break;
             case 3:
-                return "MART";
+                returnString= "MART";
+                break;
             case 4:
-                return "NİSAN";
+                returnString= "NİSAN";
+                break;
             case 5:
-                return "MAYIS";
+                returnString= "MAYIS";
+                break;
             case 6:
-                return "HAZİRAN";
+                returnString= "HAZİRAN";
+                break;
             case 7:
-                return "TEMMUZ";
+                returnString= "TEMMUZ";
+                break;
             case 8:
-                return "AĞUSTOS";
+                returnString= "AĞUSTOS";
+                break;
             case 9:
-                return "EYLÜL";
+                returnString= "EYLÜL";
+                break;
             case 10:
-                return "EKİM";
+                returnString= "EKİM";
+                break;
             case 11:
-                return "KASIM";
+                returnString= "KASIM";
+                break;
             case 12:
-                return "ARALIK";
-
+                returnString= "ARALIK";
+                break;
                 default:
-                    return context.getString(R.string.unknown);
-
+                    returnString= context.getString(R.string.unknown);
         }
+        return returnString;
     }
 
     /**
