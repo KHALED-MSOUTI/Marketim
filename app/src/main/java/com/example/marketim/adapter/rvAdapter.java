@@ -128,9 +128,10 @@ public class rvAdapter extends RecyclerView.Adapter<rvAdapter.viewHolder> {
             case 12:
                 return "ARALIK";
 
-        }
+                default:
+                    return context.getString(R.string.unknown);
 
-        return "";
+        }
     }
 
     /**
@@ -159,6 +160,12 @@ public class rvAdapter extends RecyclerView.Adapter<rvAdapter.viewHolder> {
                 chip.setChipIcon(context.getResources().getDrawable(R.drawable.ic_onay_bekliyor));
                 chip.setChipBackgroundColor(ColorStateList.valueOf(context.getResources().getColor(R.color.red)));
                 break;
+
+                default:
+                    chip.setText(context.getString(R.string.unknown));
+                    chip.setChipIcon(context.getResources().getDrawable(R.drawable.ic_bilinmeyen));
+                    chip.setChipBackgroundColor(ColorStateList.valueOf(context.getResources().getColor(R.color.red)));
+
         }
     }
 

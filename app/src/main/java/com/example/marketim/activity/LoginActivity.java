@@ -74,7 +74,7 @@ public class LoginActivity extends AppCompatActivity {
         animateButtonWidth();
         fadeOutTextAndShowProgressDialog();
         showProgressDialog();
-        if (user.equals("kariyer") && pass.equals("2019ADev")) {
+        if ("kariyer".equals(user) && "2019ADev".equals(pass)) {
             nextAction();
         } else {
             cancelAnimations();
