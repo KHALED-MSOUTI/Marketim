@@ -10,7 +10,6 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.ethanhua.skeleton.Skeleton;
-import com.ethanhua.skeleton.SkeletonScreen;
 import com.example.marketim.R;
 import com.example.marketim.adapter.rvAdapter;
 import com.example.marketim.contract.mainActivityContract;

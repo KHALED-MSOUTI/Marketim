@@ -215,6 +215,5 @@ public class LoginActivity extends AppCompatActivity {
         });
         pDialog.setOnCancelListener(sweetAlertDialog -> cancelAnimations());
         pDialog.show();
-
     }
 }

@@ -89,6 +89,8 @@
                 android:layout_marginBottom="4dp"
                 android:paddingStart="12dp"
                 android:paddingEnd="0dp"
+                android:ellipsize="end"
+                android:maxLines="1"
                 tools:text="OrderName"
                 android:textSize="16sp"
                 android:textStyle="italic" />
