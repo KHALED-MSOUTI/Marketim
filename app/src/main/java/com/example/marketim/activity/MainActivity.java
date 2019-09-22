@@ -5,11 +5,9 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
 
@@ -24,6 +22,7 @@ import java.util.ArrayList;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import cn.pedant.SweetAlert.SweetAlertDialog;
 
 public class MainActivity extends AppCompatActivity implements mainActivityContract.View,rvAdapter.ListItemClickListener {
 
@@ -73,21 +72,16 @@ public class MainActivity extends AppCompatActivity implements mainActivityContr
     }
 
     public void Logout(View view) {
-        new AlertDialog.Builder(this)
-                .setTitle(getString(R.string.alert))
-                .setMessage(getString(R.string.alertText))
-                // Specifying a listener allows you to take an action before dismissing the dialog.
-                // The dialog is automatically dismissed when a dialog button is clicked.
-                .setPositiveButton("Evet", (dialog, which) -> {
+        new SweetAlertDialog(this, SweetAlertDialog.WARNING_TYPE)
+                .setTitleText(getString(R.string.alert))
+                .setContentText(getString(R.string.logoutAlertText))
+                .setConfirmText("Evet")
+                .setConfirmClickListener(sweetAlertDialog -> {
                     preferences.edit().clear().apply();
                     Intent intent = new Intent(this,LoginActivity.class);
                     startActivity(intent);
                     finish();
                 })
-
-                // A null listener allows the button to dismiss the dialog and take no further action.
-                .setNegativeButton("Hayır", null)
-                .setIcon(android.R.drawable.ic_dialog_alert)
                 .show();
 
     }

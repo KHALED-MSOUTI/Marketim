@@ -20,7 +20,6 @@ import android.widget.Switch;
 import android.widget.TextView;
 
 import androidx.annotation.RequiresApi;
-import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.marketim.R;
@@ -30,6 +29,7 @@ import java.util.Objects;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import cn.pedant.SweetAlert.SweetAlertDialog;
 
 import static android.view.View.INVISIBLE;
 import static android.view.View.VISIBLE;
@@ -211,11 +211,10 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     private void showAlert() {
-        AlertDialog alertDialog = new AlertDialog.Builder(this).create();
-        alertDialog.setTitle("Alert");
-        alertDialog.setMessage("User name or password is not correct");
-        alertDialog.setButton(AlertDialog.BUTTON_NEUTRAL, "OK",
-                (dialog, which) -> dialog.dismiss());
-        alertDialog.show();
+        SweetAlertDialog pDialog = new SweetAlertDialog(this, SweetAlertDialog.ERROR_TYPE);
+        pDialog.setTitleText(getString(R.string.alert));
+        pDialog.setContentText(getString(R.string.passwordAlertText));
+        pDialog.setConfirmText("Tamam");
+        pDialog.show();
     }
 }

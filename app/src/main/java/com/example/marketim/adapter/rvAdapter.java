@@ -21,7 +21,7 @@ public class rvAdapter extends RecyclerView.Adapter<rvAdapter.viewHolder> {
     final private ListItemClickListener mOnClickListener;
     private ArrayList<jsonList> list;
     private Context context;
-    public int selectedPosition=-1;
+    private int selectedPosition=-1;
 
     public rvAdapter(ListItemClickListener mOnClickListener,ArrayList<jsonList> list, Context context) {
     this.list=list;
@@ -141,11 +141,12 @@ public class rvAdapter extends RecyclerView.Adapter<rvAdapter.viewHolder> {
         return (price)+" ₺";
     }
     /**
-     * Check the
-     * @param state
-     * then modify the
-     * @param chip
      *
+     * @param state
+     * will be Checked
+     *
+     * @param chip
+     * Will be modified
      */
     private void setProductState(String state,Chip chip){
         chip.setText(state);

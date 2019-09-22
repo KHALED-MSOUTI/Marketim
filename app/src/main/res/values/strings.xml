@@ -7,6 +7,7 @@
     <string name="logout">Çıkış Yap</string>
     <string name="sipareslerim">Siparişlerim</string>
     <string name="alert">Uyarı</string>
-    <string name="alertText">çıkış yapmak ister misiniz ?</string>
+    <string name="logoutAlertText">çıkış yapmak ister misiniz ?</string>
+    <string name="passwordAlertText">"Kullanıcı adı veya şifre hatalıdır !"</string>
     <string name="beni_hatirla">Beni hatırla</string>
 </resources>
