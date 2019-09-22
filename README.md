@@ -1,3 +1,4 @@
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/e43dec245fe348a285e09636d8f9fac6)](https://www.codacy.com/manual/KHALED-MSOUTI/Marketim?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=KHALED-MSOUTI/Marketim&amp;utm_campaign=Badge_Grade)
 <br/>
 <h2> <img align="left" src="/screenshots/login_logo.png" width="128" height="128"> 
   <br />Marketim</h2>
