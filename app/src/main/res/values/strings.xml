@@ -11,4 +11,5 @@
     <string name="passwordAlertText">"Kullanıcı adı veya şifre hatalıdır !"</string>
     <string name="beni_hatirla">Beni hatırla</string>
     <string name="unknown">bilinmeyen</string>
+    <string name="ok">Tamam</string>
 </resources>

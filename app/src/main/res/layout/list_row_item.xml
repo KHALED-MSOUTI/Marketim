@@ -4,8 +4,13 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:padding="4dp"
+    android:layout_marginStart="4dp"
+    android:layout_marginEnd="4dp"
+    android:layout_marginTop="2dp"
+    android:layout_marginBottom="2dp"
     xmlns:tools="http://schemas.android.com/tools"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:background="#68000000">
     <LinearLayout
         android:orientation="horizontal"
         android:layout_width="match_parent"
@@ -19,6 +24,7 @@
 
             <TextView
                 android:id="@+id/dateDay"
+                android:textColor="@android:color/white"
                 android:layout_weight="4"
                 android:layout_width="wrap_content"
                 android:layout_height="0dp"
@@ -27,6 +33,7 @@
 
             <TextView
                 android:id="@+id/DateMonth"
+                android:textColor="@android:color/white"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 tools:text="EKIM"
@@ -37,7 +44,7 @@
         <View
             android:layout_width="2dp"
             android:layout_height="match_parent"
-            android:background="@android:color/holo_blue_dark"
+            android:background="@color/colorAccent"
             android:layout_marginTop="16dp"
             android:layout_marginBottom="16dp"/>
 
@@ -56,6 +63,7 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:padding="4dp"
+                    android:textColor="@android:color/white"
                     android:gravity="start"
                     tools:text="MarketName"
                     android:textSize="22sp"
@@ -74,7 +82,7 @@
             <TextView
                 android:id="@+id/orderName"
                 android:layout_weight="1"
-
+                android:textColor="@android:color/white"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:paddingBottom="4dp"
@@ -107,6 +115,7 @@
         <TextView
             android:id="@+id/orderDetail"
             android:layout_width="0dp"
+            android:textColor="@android:color/white"
             android:layout_height="wrap_content"
             android:textSize="22sp"
             android:paddingStart="16dp"
@@ -125,7 +134,7 @@
     </LinearLayout>
 
     <View
-        android:background="@android:color/holo_blue_dark"
+        android:background="@color/colorAccent"
         android:layout_width="match_parent"
         android:layout_height="2dp"
         android:layout_marginStart="16dp"

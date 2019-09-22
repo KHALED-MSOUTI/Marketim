@@ -9,6 +9,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.ethanhua.skeleton.Skeleton;
+import com.ethanhua.skeleton.SkeletonScreen;
 import com.example.marketim.R;
 import com.example.marketim.adapter.rvAdapter;
 import com.example.marketim.contract.mainActivityContract;
@@ -60,9 +62,13 @@ public class MainActivity extends AppCompatActivity implements mainActivityContr
         recyclerView.setLayoutManager(manager);
         mPresenter.loadData();
         preferences = getSharedPreferences(Const.PREFERENCES_NAME, MODE_PRIVATE);
-
-
+        Skeleton.bind(recyclerView)
+                .adapter(adapter)
+                .load(R.layout.list_row_item)
+                .show();
     }
+
+
 
     @Override
     public void loadDataInList(ArrayList<jsonList> items) {

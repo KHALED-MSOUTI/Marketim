@@ -108,14 +108,12 @@ public class LoginActivity extends AppCompatActivity {
         anim.start();
     }
 
-    @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     private void cancelAnimations() {
         ValueAnimator anim = ValueAnimator.ofInt(button.getMeasuredWidth(), getFabWidth());
         anim.addUpdateListener(valueAnimator -> {
             ViewGroup.LayoutParams layoutParams = button.getLayoutParams();
             layoutParams.width = (int) (getResources().getDisplayMetrics().density * 300);
             button.requestLayout();
-            button.setElevation(4f);
             progressBar.setVisibility(INVISIBLE);
             text.setVisibility(VISIBLE);
             text.setAlpha(1f);
@@ -134,8 +132,9 @@ public class LoginActivity extends AppCompatActivity {
 
     private void nextAction() {
         new Handler().postDelayed(() -> {
-            revealButton();
-
+            if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.LOLLIPOP) {
+                revealButton();
+            }
             fadeOutProgressDialog();
 
             delayedStartNextActivity();
@@ -143,10 +142,6 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     private void revealButton() {
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-            button.setElevation(0f);
-        }
-
         reveal.setVisibility(VISIBLE);
 
         int cx = reveal.getWidth();
@@ -164,13 +159,11 @@ public class LoginActivity extends AppCompatActivity {
         }
         Objects.requireNonNull(animator).setDuration(350);
         animator.addListener(new AnimatorListenerAdapter() {
-            @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
             @Override
             public void onAnimationEnd(Animator animation) {
                 reset(animation);
             }
 
-            @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
             private void reset(Animator animation) {
                 super.onAnimationEnd(animation);
                 cancelAnimations();
@@ -215,7 +208,13 @@ public class LoginActivity extends AppCompatActivity {
         SweetAlertDialog pDialog = new SweetAlertDialog(this, SweetAlertDialog.ERROR_TYPE);
         pDialog.setTitleText(getString(R.string.alert));
         pDialog.setContentText(getString(R.string.passwordAlertText));
-        pDialog.setConfirmText("Tamam");
+        pDialog.setConfirmText(getString(R.string.ok));
+        pDialog.setConfirmClickListener(sweetAlertDialog -> {
+            cancelAnimations();
+            pDialog.cancel();
+        });
+        pDialog.setOnCancelListener(sweetAlertDialog -> cancelAnimations());
         pDialog.show();
+
     }
 }
