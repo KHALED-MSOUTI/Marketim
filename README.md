@@ -1,4 +1,3 @@
-
 <br/>
 <h2> <img align="left" src="/screenshots/login_logo.png" width="128" height="128"> 
   <br />Marketim</h2>
@@ -10,7 +9,6 @@
 The second race in Android Tech Challenge.
 
 ### Features
-
 
 <ul>
  <li> App totally written by Java </li>
