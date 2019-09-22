@@ -142,6 +142,7 @@ public class rvAdapter extends RecyclerView.Adapter<rvAdapter.viewHolder> {
                 break;
                 default:
                     returnString= context.getString(R.string.unknown);
+                    break;
         }
         return returnString;
     }
@@ -177,6 +178,7 @@ public class rvAdapter extends RecyclerView.Adapter<rvAdapter.viewHolder> {
                     chip.setText(context.getString(R.string.unknown));
                     chip.setChipIcon(context.getResources().getDrawable(R.drawable.ic_bilinmeyen));
                     chip.setChipBackgroundColor(ColorStateList.valueOf(context.getResources().getColor(R.color.red)));
+                    break;
 
         }
     }
